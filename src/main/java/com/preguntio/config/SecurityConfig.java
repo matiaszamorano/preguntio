@@ -40,22 +40,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().loginPage("/login.html").loginProcessingUrl("/login");
 
         http.authorizeRequests()
-                .antMatchers("/redirecciones").permitAll()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/login.html").permitAll()
-                .antMatchers("/avisoNavegadoresSoportados.html").permitAll()
-                .antMatchers("/api/registrar").permitAll()
-                .antMatchers("/api/registrar/").permitAll()
-                .antMatchers("/personas/**/imagen").permitAll()
-                .antMatchers("/").authenticated()
-                .antMatchers("/**/*.html").authenticated()
-                .antMatchers("/**/*.pdf").authenticated()
-                .antMatchers("/**/*.xls").authenticated()
-                .antMatchers("/personas/**").authenticated()
-                .antMatchers("/admin/*.html").hasAnyRole("ADMIN", "ADMIN_EMPRESA")
-                .antMatchers("/api/admin/**").hasAnyRole("ADMIN", "ADMIN_EMPRESA")
-                .antMatchers("/api/**").authenticated()
-                .anyRequest().denyAll();
+//                .antMatchers("/login").permitAll()
+//                .antMatchers("/login.html").permitAll()
+//                .antMatchers("/api/**").permitAll()
+////                .antMatchers("/api/registrar").permitAll()
+////                .antMatchers("/api/registrar/").permitAll()
+//                .antMatchers("/").authenticated()
+//                .antMatchers("/**/*.html").authenticated()
+                .anyRequest().permitAll();
     }
 
     @Bean
@@ -68,8 +60,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(datasource)
-                .usersByUsernameQuery("select username, password, enabled from persona where username = ?")
-                .authoritiesByUsernameQuery("select u.username, r.rol from persona u, rol r where u.id = r.id_persona and u.username = ?")
+                .usersByUsernameQuery("select email, password, enabled from usuario where email = ?")
+                .authoritiesByUsernameQuery("select u.email, r.rol from usuario u, rol r where u.id = r.id_usuario and u.email = ?")
                 .passwordEncoder(bCryptPasswordEncoder);
     }
 

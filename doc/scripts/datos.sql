@@ -111,12 +111,12 @@ VALUES
 ('¿De quièn aprendes?');
 
 
--- INSERT INTO usuario
---     (id,    email,                      password)
--- VALUES
---     (1,     'matzam@gmail.com',         '$2a$10$iodzSOMStstDQmgofPOXGOywxiLcDHtztfNmZ0DS9h5tpb.p3vOiG');
--- 
--- INSERT INTO rol
---     (id_usuario,    rol)
--- VALUES
---     (1,             'ROLE_USER');
+INSERT INTO usuario
+    (id,    email,                      password)
+VALUES
+    (1,     'matzam@gmail.com',         '$2a$10$iodzSOMStstDQmgofPOXGOywxiLcDHtztfNmZ0DS9h5tpb.p3vOiG');
+
+INSERT INTO rol
+    (id_usuario,    rol)
+VALUES
+    (1,             'ROLE_USER');
