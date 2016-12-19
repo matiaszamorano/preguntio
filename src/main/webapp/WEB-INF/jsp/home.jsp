@@ -11,7 +11,7 @@
     <c:forEach items="${preguntas}" var="pregunta">
         <tr>
             <td>${pregunta.contenido}</td>
-            <td><a href="#" data-id="${pregunta.id}">borrar</a></td>
+            <td><a href="#" class="pr-borrar-pregunta" data-id="${pregunta.id}">borrar</a></td>
         </tr>
     </c:forEach>
 </table> 

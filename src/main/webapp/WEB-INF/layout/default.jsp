@@ -20,12 +20,24 @@
     </head>
     <body>
         <div class="container">
-
             <div class="starter-template">
                 <tiles:insertAttribute name="body" />
             </div>
-
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script src="${root}/js/app/preguntio.js"></script>
+        <script src="${root}/js/app/service/service.js"></script>
+        <script src="${root}/js/app/service/preguntas/preguntas.js"></script>
+        <script src="${root}/js/app/ui/ui.js"></script>
+
+        <tiles:importAttribute name="js" scope="page"/>
+        <c:if test="${not empty js}">
+            <script src="${root}/${js}"></script>
+        </c:if>
 
     </body>
 </html>
