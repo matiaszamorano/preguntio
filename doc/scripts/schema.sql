@@ -19,3 +19,18 @@ CREATE TABLE pregunta (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     contenido VARCHAR(255) NOT NULL
 );
+
+CREATE TABLE usuario (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    enabled BOOLEAN DEFAULT TRUE
+);
+
+CREATE TABLE rol (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario BIGINT NOT NULL,
+    rol VARCHAR(255) NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id),
+    UNIQUE KEY unique_id_usuario_rol (id_usuario, rol)
+);
