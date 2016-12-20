@@ -8,6 +8,7 @@ preguntio.ui.home = (function () {
                     .done(function () {
                         $this.closest("tr").slideUp(400);
                     });
+            return false;
         });
     }
 
