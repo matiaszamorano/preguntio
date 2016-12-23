@@ -15,9 +15,26 @@ DEALLOCATE PREPARE stmt;
 SET FOREIGN_KEY_CHECKS = 1;
 
 
+CREATE TABLE COLECCION (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    imagen VARCHAR(255) NOT NULL,
+    descripcion_corta VARCHAR(255) NOT NULL,
+    descripcion VARCHAR(1000) NOT NULL
+);
+
+CREATE TABLE CATEGORIA (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    id_coleccion BIGINT NOT NULL,
+    FOREIGN KEY (id_coleccion) REFERENCES coleccion(id)
+);
+
 CREATE TABLE pregunta (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    contenido VARCHAR(255) NOT NULL
+    contenido VARCHAR(255) NOT NULL,
+    id_categoria BIGINT NOT NULL,
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id)
 );
 
 CREATE TABLE usuario (
