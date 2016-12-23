@@ -15,7 +15,29 @@ VALUES
 INSERT INTO categoria
     (id, titulo, id_coleccion)
 VALUES
-    (2, "Noviembre", 2);
+    (2, "Noviembre", 2),
+    (3, "Anticipación",1),
+    (4, "Evaluación",1),
+    (5, "Clarificación",1),
+    (6, "Elaboración",1),
+    (7, "Evaluación",1),
+    (8, "Ejemplo",1),
+    (9, "Exploración",1),
+    (10,"Por ejemplo",1),
+    (11,"Diversión como perspectiva",1),
+    (12,"Historia",1),
+    (13,"Implementación",1),
+    (14,"Integración",1),
+    (15,"Aprendizaje",1),
+    (16,"Opciones",1),
+    (17,"Resultados",1),
+    (18,"Perspectiva",1),
+    (19,"Planificación",1),
+    (20,"Predicciones",1),
+    (21,"Recursos",1),
+    (22,"Inicio de la sesión",1),
+    (23,"Resumen",1),
+    (24,"Acción",1);
 
 INSERT INTO pregunta
     (contenido, id_categoria)
@@ -122,7 +144,13 @@ VALUES
 ('¿Que ideas te gustaría probar hoy?',2),
 ('¿De quien aprendes?',2),
 ('¿Què ideas te gustaria probar hoy?',2),
-('¿De quièn aprendes?',2);
+('¿De quièn aprendes?',2),
+('¿Qué es posible?',3),
+('¿Y si pasa exactamente como lo deseas?',3),
+('¿Cuál es tu sueño?',3),
+('¿Qué es lo emocionante para vos de esto?',3),
+('¿Cuál es la necesidad?',3),
+('¿Qué te dice tu intuición?',3);
 
 
 INSERT INTO usuario

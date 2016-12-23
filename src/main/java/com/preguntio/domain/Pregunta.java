@@ -16,7 +16,7 @@ public class Pregunta {
     private String contenido;
     @ManyToOne
     @JoinColumn(name = "id_categoria")
-    private Coleccion categoria;
+    private Categoria categoria;
 
     public Long getId() {
         return id;
@@ -26,13 +26,14 @@ public class Pregunta {
         this.id = id;
     }
 
-    public Coleccion getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Coleccion categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
 
     public String getContenido() {
         return contenido;
