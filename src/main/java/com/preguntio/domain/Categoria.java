@@ -30,6 +30,10 @@ public class Categoria {
         this.id = id;
     }
 
+    public Integer getCantidadPreguntas() {
+        return this.preguntas.size();
+    }
+
     public Coleccion getColeccion() {
         return coleccion;
     }
