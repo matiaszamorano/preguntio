@@ -1,6 +1,6 @@
 package com.preguntio.controller;
 
-import com.preguntio.repository.PreguntaRepository;
+import com.preguntio.repository.ColeccionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @Autowired
-    private PreguntaRepository preguntaRepository;
+    private ColeccionRepository coleccionRepository;
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("preguntas", preguntaRepository.findAll());
+        model.addAttribute("colecciones", coleccionRepository.findAll());
         return "home";
     }
 
