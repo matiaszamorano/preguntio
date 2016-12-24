@@ -10,6 +10,21 @@ preguntio.ui.home = (function () {
                     });
             return false;
         });
+
+        $("#formNuevaColeccion").submit(function () {
+            var coleccion = preguntio.ui.convertirEnJsonDataDeForm($(this));
+            console.log(coleccion);
+            preguntio.service.post("http://localhost:8080/api/colecciones", coleccion).
+                    done(function () {
+                        location.reload()
+                    }).
+                    fail(function (error) {
+                        console.log(error)
+                    });
+
+            ;
+            return false;
+        });
     }
 
 

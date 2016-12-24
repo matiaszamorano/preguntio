@@ -6,11 +6,15 @@
         <title>Preguntio!</title>
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="/css/main.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <div class="container">
             <div class="starter-template">
                 <h1>Colecciones</h1>
+                <a class="btn btn-default acciones" data-toggle="modal" data-target="#altaColeccion" aria-label="Left Align">+ Nueva colección</a> 
+
+
                 <div class="panel-group" id="accordionColecciones" role="tablist" aria-multiselectable="true">
                     {{#colecciones}}
                     <div class="panel panel-default">
@@ -24,6 +28,7 @@
                         <div id="coleccion{{id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                             <div class="panel-body">
                                 <h2>Categorías</h2>
+                                <a class="btn btn-default acciones" aria-label="Left Align">+ Nueva categoría</a> 
                                 <div class="panel-group" id="accordionCategorias{{id}}" role="tablist" aria-multiselectable="true">
                                     {{#categorias}}
                                     <div class="panel-heading" role="tab" id="headingCat{{id}}">
@@ -55,6 +60,37 @@
                         </div>
                     </div>
                     {{/colecciones}}
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="altaColeccion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form id="formNuevaColeccion">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Nueva Colección</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <input class="form-control" type="text" required name="titulo" placeholder="Título">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" required name="imagen" placeholder="Url Imágen">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" required name="descripcionCorta" placeholder="Descripción Corta">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="4" cols="50" required name="descripcion" placeholder="Descripción"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
