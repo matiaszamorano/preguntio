@@ -13,7 +13,7 @@ preguntio.ui.home = (function () {
 
         $("#formNuevaColeccion").submit(function () {
             var coleccion = preguntio.ui.convertirEnJsonDataDeForm($(this));
-            preguntio.service.post("http://localhost:8080/api/colecciones", coleccion).
+            preguntio.service.post(preguntio.service.url() + "colecciones", coleccion).
                     done(function () {
                         location.reload()
                     }).
@@ -27,14 +27,14 @@ preguntio.ui.home = (function () {
 
         $(".alta-categoria").click(function () {
             var idColeccion = $(this).data("id-coleccion");
-            $("#altaCategoría form input[name='coleccion']").attr("value", "http://localhost:8080/api/colecciones/" + idColeccion);
+            $("#altaCategoría form input[name='coleccion']").attr("value", preguntio.service.url() + "colecciones/" + idColeccion);
             $('#altaCategoría').modal();
             return false;
         });
 
         $(".borrar-coleccion").click(function () {
             var idColeccion = $(this).data("id");
-            preguntio.service.eliminar("http://localhost:8080/api/colecciones/" + idColeccion).
+            preguntio.service.eliminar(preguntio.service.url() + "colecciones/" + idColeccion).
                     done(function () {
                         location.reload()
                     }).
@@ -46,7 +46,7 @@ preguntio.ui.home = (function () {
 
         $(".borrar-categoria").click(function () {
             var idCategoria = $(this).data("id");
-            preguntio.service.eliminar("http://localhost:8080/api/categorias/" + idCategoria).
+            preguntio.service.eliminar(preguntio.service.url() + "categorias/" + idCategoria).
                     done(function () {
                         location.reload()
                     }).
@@ -58,7 +58,7 @@ preguntio.ui.home = (function () {
 
         $("#formNuevaCagoria").submit(function () {
             var categoria = preguntio.ui.convertirEnJsonDataDeForm($(this));
-            preguntio.service.post("http://localhost:8080/api/categorias", categoria).
+            preguntio.service.post(preguntio.service.url() + "categorias", categoria).
                     done(function () {
                         location.reload()
                     }).
