@@ -31,7 +31,10 @@ public class Categoria {
     }
 
     public Integer getCantidadPreguntas() {
-        return this.preguntas.size();
+        if (this.preguntas != null) {
+            return this.preguntas.size();
+        }
+        return 0;
     }
 
     public Coleccion getColeccion() {

@@ -13,8 +13,28 @@ preguntio.ui.home = (function () {
 
         $("#formNuevaColeccion").submit(function () {
             var coleccion = preguntio.ui.convertirEnJsonDataDeForm($(this));
-            console.log(coleccion);
             preguntio.service.post("http://localhost:8080/api/colecciones", coleccion).
+                    done(function () {
+                        location.reload()
+                    }).
+                    fail(function (error) {
+                        console.log(error)
+                    });
+
+            ;
+            return false;
+        });
+
+        $(".alta-categoria").click(function () {
+            var idColeccion = $(this).data("id-coleccion");
+            $("#altaCategoría form input[name='coleccion']").attr("value", "http://localhost:8080/api/colecciones/" + idColeccion);
+            $('#altaCategoría').modal();
+            return false;
+        });
+
+        $("#formNuevaCagoria").submit(function () {
+            var categoria = preguntio.ui.convertirEnJsonDataDeForm($(this));
+            preguntio.service.post("http://localhost:8080/api/categorias", categoria).
                     done(function () {
                         location.reload()
                     }).
