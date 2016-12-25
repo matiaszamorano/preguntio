@@ -32,6 +32,30 @@ preguntio.ui.home = (function () {
             return false;
         });
 
+        $(".borrar-coleccion").click(function () {
+            var idColeccion = $(this).data("id");
+            preguntio.service.eliminar("http://localhost:8080/api/colecciones/" + idColeccion).
+                    done(function () {
+                        location.reload()
+                    }).
+                    fail(function (error) {
+                        console.log(error)
+                    });
+            return false;
+        });
+
+        $(".borrar-categoria").click(function () {
+            var idCategoria = $(this).data("id");
+            preguntio.service.eliminar("http://localhost:8080/api/categorias/" + idCategoria).
+                    done(function () {
+                        location.reload()
+                    }).
+                    fail(function (error) {
+                        console.log(error)
+                    });
+            return false;
+        });
+
         $("#formNuevaCagoria").submit(function () {
             var categoria = preguntio.ui.convertirEnJsonDataDeForm($(this));
             preguntio.service.post("http://localhost:8080/api/categorias", categoria).
