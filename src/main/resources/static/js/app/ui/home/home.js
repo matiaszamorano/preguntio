@@ -61,7 +61,7 @@ preguntio.ui.home = (function () {
                     fail(function (error) {
                         console.log(error)
                     });
-            return false;
+            return $('#altaPreguntas').modal('toggle');
         });
 
         $(".borrar-categoria").click(function () {
