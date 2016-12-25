@@ -43,6 +43,7 @@
                                     </div>
                                     <div id="categoria{{id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                         <div class="panel-body">
+                                            <a class="btn btn-default acciones alta-preguntas" aria-label="Left Align" data-id-categoria="{{id}}">+ Agregar preguntas</a> 
                                             <table class="table table-hover table-responsive" style="width:100%">
                                                 <tr>
                                                     <th>Preguntas</th>
@@ -111,6 +112,29 @@
                                 <input class="form-control" type="text" required name="titulo" placeholder="Título">
                             </div>
                             <input type="hidden" name="coleccion" value=""/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="altaPreguntas" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form id="formNuevasPreguntas">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Nueva categoría</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="4" cols="50" required name="preguntas" placeholder="Preguntas separadas por ,"></textarea>
+                            </div>
+                            <input type="hidden" name="categoria" value=""/>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

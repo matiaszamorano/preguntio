@@ -32,6 +32,26 @@ preguntio.ui.home = (function () {
             return false;
         });
 
+        $(".alta-preguntas").click(function () {
+            var idCategoria = $(this).data("id-categoria");
+            $("#altaPreguntas form input[name='categoria']").attr("value", preguntio.service.url() + "categorias/" + idCategoria);
+            $('#altaPreguntas').modal();
+            return false;
+        });
+
+        $("#formNuevasPreguntas").submit(function () {
+            var formulario = preguntio.ui.convertirEnJsonDataDeForm($(this));
+            var arrayPreguntas = formulario.preguntas.split(',');
+            console.log(arrayPreguntas);
+            $.each(arrayPreguntas, function (i, textoPregunta) {
+                var pregunta = {};
+                pregunta.contenido = textoPregunta;
+                pregunta.categoria = formulario.categoria;
+                preguntio.service.post(preguntio.service.url() + "preguntas", pregunta);
+            });
+            return false;
+        });
+
         $(".borrar-coleccion").click(function () {
             var idColeccion = $(this).data("id");
             preguntio.service.eliminar(preguntio.service.url() + "colecciones/" + idColeccion).
