@@ -1,6 +1,7 @@
 preguntio.ui.home = (function () {
 
     function init() {
+        var $altaPregunta = $('#altaPreguntas');
         $(".pr-borrar-pregunta").click(function () {
             var $this = $(this);
             var id = $this.data("id");
@@ -35,7 +36,7 @@ preguntio.ui.home = (function () {
         $(".alta-preguntas").click(function () {
             var idCategoria = $(this).data("id-categoria");
             $("#altaPreguntas form input[name='categoria']").attr("value", preguntio.service.url() + "categorias/" + idCategoria);
-            $('#altaPreguntas').modal();
+            $altaPregunta.modal();
             return false;
         });
 
@@ -49,6 +50,7 @@ preguntio.ui.home = (function () {
                 pregunta.categoria = formulario.categoria;
                 preguntio.service.post(preguntio.service.url() + "preguntas", pregunta);
             });
+            $altaPregunta.modal('hide');
             return false;
         });
 
@@ -61,7 +63,7 @@ preguntio.ui.home = (function () {
                     fail(function (error) {
                         console.log(error)
                     });
-            return $('#altaPreguntas').modal('hide');
+            return false;
         });
 
         $(".borrar-categoria").click(function () {
