@@ -17,6 +17,9 @@ public class Coleccion {
     private String imagen;
     private String descripcion;
     private String descripcionCorta;
+    private boolean nueva;
+    private String tags;
+    private String fuente;
     @OneToMany(mappedBy = "coleccion")
     private List<Categoria> categorias;
 
@@ -26,6 +29,30 @@ public class Coleccion {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean isNueva() {
+        return nueva;
+    }
+
+    public void setNueva(boolean nueva) {
+        this.nueva = nueva;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getFuente() {
+        return fuente;
+    }
+
+    public void setFuente(String fuente) {
+        this.fuente = fuente;
     }
 
     public String getTitulo() {

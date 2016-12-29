@@ -5,12 +5,14 @@ DELETE FROM rol;
 DELETE FROM usuario;
 
 INSERT INTO coleccion
-    (id,titulo, imagen, descripcion, descripcion_corta)
+    (id,titulo, imagen, descripcion, descripcion_corta, nueva, tags, fuente)
 VALUES
     (1,"Preguntas Poderosas", "http://agilepartnership.com/wp-content/uploads/2011/08/iStock_000003286671Small.jpg", "Las preguntas poderosas son preguntas provocativas que ponen fin a la evasión y a la confusión, preguntando. 
                                                 Con estas el coach invita al coachee a la claridad, la acción y el descubrimiento en un nuevo nivel. 
-                                                Son generalmente preguntas abiertas que crean mayor posibilidad de ampliar el aprendizaje y la perspectiva.","Las preguntas poderosas son preguntas provocativas que ponen fin a la evasión y a la confusión."),
-    (2,"Preguntas PNT", "http://www.somospnt.com/images/background/foto_lego_1.jpg", "Durante semanas generamos estas preguntas para reflexionar en el equipo.", "Durante semanas generamos estas preguntas para reflexionar en el equipo.");
+                                                Son generalmente preguntas abiertas que crean mayor posibilidad de ampliar el aprendizaje y la perspectiva.","Las preguntas poderosas son preguntas provocativas que ponen fin a la evasión y a la confusión.",
+    false,'Coaching','http://www.coactive.com/docs/resources/toolkit/index.html'),
+    (2,"Preguntas PNT", "http://www.somospnt.com/images/background/foto_lego_1.jpg", "Durante semanas generamos estas preguntas para reflexionar en el equipo.", "Durante semanas generamos estas preguntas para reflexionar en el equipo.",
+    true, 'Equipos,Coaching','http://www.somospnt.com');
 
 INSERT INTO categoria
     (id, titulo, id_coleccion)

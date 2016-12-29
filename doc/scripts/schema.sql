@@ -24,7 +24,10 @@ CREATE TABLE coleccion (
     titulo VARCHAR(255) NOT NULL,
     imagen VARCHAR(255) NOT NULL,
     descripcion_corta VARCHAR(255) NOT NULL,
-    descripcion VARCHAR(1000) NOT NULL
+    descripcion VARCHAR(1000) NOT NULL,
+    nueva BOOLEAN DEFAULT TRUE,
+    tags VARCHAR(255),
+    fuente VARCHAR(255)
 );
 
 CREATE TABLE categoria (
