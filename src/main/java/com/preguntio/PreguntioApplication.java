@@ -25,7 +25,7 @@ public class PreguntioApplication {
         return new RestTemplate();
     }
 
-    @Scheduled(cron = "0 0/20 7-23 * * *")
+    @Scheduled(cron = "0 0/20 1-23 * * *")
     public void herokuKeepAlive() {
         System.out.println("Control de ejecución " + System.currentTimeMillis());
         restTemplate.getForObject("https://preguntio.herokuapp.com/", String.class);
